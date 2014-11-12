@@ -8,10 +8,25 @@ window.onload = function(){
 
 
 			// Din kod här.
+			
+			var birthday = new Date(date);
+			var now = new Date();
+			
+			if (isNaN(birthday)){
+				throw new Error ("Du måste ange ett datum.");
+			}
+			
+			birthday.setFullYear(now.getFullYear());
+			now.setHours(0);
+			
+			if (birthday < now){
+				birthday.setFullYear(now.getFullYear()+1);
+ 			}
+ 			
+ 			var daysLeft = Math.floor((birthday.getTime()-now.getTime())/(1000*60*60*24));
 
-
-
-
+ 			return daysLeft;
+ 		
 	};
 	// ------------------------------------------------------------------------------
 
